@@ -50,6 +50,8 @@ class DependenteController extends Controller
             $em->persist($dependente);
             $em->flush();
 
+            $this->addFlash('notice','Dependente registrado.');
+
             return $this->redirectToRoute('dependente_show', array('id' => $dependente->getId()));
         }
 
@@ -92,6 +94,8 @@ class DependenteController extends Controller
             $em->persist($dependente);
             $em->flush();
 
+            $this->addFlash('notice','Funcionário atualizado.');
+
             return $this->redirectToRoute('dependente_edit', array('id' => $dependente->getId()));
         }
 
@@ -118,6 +122,8 @@ class DependenteController extends Controller
             $em->remove($dependente);
             $em->flush();
         }
+
+        $this->addFlash('notice','Dependente atualizado.');
 
         return $this->redirectToRoute('dependente_index');
     }

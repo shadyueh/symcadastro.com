@@ -50,7 +50,9 @@ class FuncionarioController extends Controller
             $em->persist($funcionario);
             $em->flush();
 
-            return $this->redirectToRoute('funcionario_show', array('id' => $funcionario->getId()));
+            $this->addFlash('notice','Funcionário registrado.');
+
+            return $this->redirectToRoute('funcionario_index');
         }
 
         return $this->render('funcionario/new.html.twig', array(
@@ -83,7 +85,6 @@ class FuncionarioController extends Controller
      */
     public function editAction(Request $request, Funcionario $funcionario)
     {
-        $deleteForm = $this->createDeleteForm($funcionario);
         $editForm = $this->createForm('AppBundle\Form\FuncionarioType', $funcionario);
         $editForm->handleRequest($request);
 
@@ -92,13 +93,14 @@ class FuncionarioController extends Controller
             $em->persist($funcionario);
             $em->flush();
 
-            return $this->redirectToRoute('funcionario_edit', array('id' => $funcionario->getId()));
+            $this->addFlash('notice','Funcionário atualizado.');
+
+            return $this->redirectToRoute('funcionario_index');
         }
 
         return $this->render('funcionario/edit.html.twig', array(
             'funcionario' => $funcionario,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -118,6 +120,8 @@ class FuncionarioController extends Controller
             $em->remove($funcionario);
             $em->flush();
         }
+
+        $this->addFlash('notice','Funcionário removido.');
 
         return $this->redirectToRoute('funcionario_index');
     }

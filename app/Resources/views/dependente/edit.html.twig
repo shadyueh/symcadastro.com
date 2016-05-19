@@ -1,21 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Dependente edit</h1>
+
+    <h2 class="page-header">Editar Dependente</h2>
+
+    <div class="btn-group" style="margin-bottom:15px">
+        <a class="btn btn-primary" href="{{ path('dependente_index') }}" role="button" aria-label="Lista">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Lista
+        </a>
+    </div>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input class="btn btn-primary" type="submit" value="Atualizar" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('dependente_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
