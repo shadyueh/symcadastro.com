@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class FuncionarioType extends AbstractType
 {
@@ -17,11 +18,11 @@ class FuncionarioType extends AbstractType
         $builder
             ->add('nome')
             ->add('cpf')
-            ->add('dataNascimento', 'date')
+            ->add('dataNascimento', DateType::class, array('years' =>range(date('Y') -85, date('Y') -14)))
             ->add('endereco')
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
