@@ -12,3 +12,5 @@ A Symfony project created on May 18, 2016, 11:29 pm.
     use Symfony\Component\Form\Extension\Core\Type\DateType;
     ...
      ->add('dataNascimento', DateType::class, array('years' =>range(date('Y') -85, date('Y') )))
+7) After ORM mapping, create the getters and setters by
+    $ php bin/console generate:doctrine:entities <short name of entity>
