@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dependente</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dependente.id }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ dependente.nome }}</td>
+            </tr>
+            <tr>
+                <th>Datanascimento</th>
+                <td>{% if dependente.dataNascimento %}{{ dependente.dataNascimento|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Parentesco</th>
+                <td>{{ dependente.parentesco }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('dependente_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('dependente_edit', { 'id': dependente.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

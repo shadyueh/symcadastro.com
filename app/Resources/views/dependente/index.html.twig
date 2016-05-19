@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dependente list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Datanascimento</th>
+                <th>Parentesco</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dependente in dependentes %}
+            <tr>
+                <td><a href="{{ path('dependente_show', { 'id': dependente.id }) }}">{{ dependente.id }}</a></td>
+                <td>{{ dependente.nome }}</td>
+                <td>{% if dependente.dataNascimento %}{{ dependente.dataNascimento|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ dependente.parentesco }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('dependente_show', { 'id': dependente.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dependente_edit', { 'id': dependente.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('dependente_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
