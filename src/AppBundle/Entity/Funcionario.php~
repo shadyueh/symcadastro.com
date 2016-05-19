@@ -175,46 +175,5 @@ class Funcionario
     {
         return $this->endereco;
     }
-
-    /**
-     * Add dependente
-     *
-     * @param \AppBundle\Entity\Dependente $dependente
-     *
-     * @return Funcionario
-     */
-    public function addDependente(\AppBundle\Entity\Dependente $dependente)
-    {
-        $this->dependentes[] = $dependente;
-
-        return $this;
-    }
-
-    /**
-     * Remove dependente
-     *
-     * @param \AppBundle\Entity\Dependente $dependente
-     */
-    public function removeDependente(\AppBundle\Entity\Dependente $dependente)
-    {
-        $this->dependentes->removeElement($dependente);
-    }
-
-    /**
-     * Get dependentes
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getDependentes()
-    {
-        return $this->dependentes;
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->getNome();
-    }
 }
+

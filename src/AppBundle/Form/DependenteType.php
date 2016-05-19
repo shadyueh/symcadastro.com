@@ -18,6 +18,7 @@ class DependenteType extends AbstractType
         $builder
             ->add('nome')
             ->add('dataNascimento', DateType::class, array('years' =>range(date('Y') -85, date('Y'))))
+            ->add('funcionario')
             ->add('parentesco')
         ;
     }

@@ -136,28 +136,5 @@ class Dependente
     {
         return $this->parentesco;
     }
-
-    /**
-     * Set funcionario
-     *
-     * @param \AppBundle\Entity\Funcionario $funcionario
-     *
-     * @return Dependente
-     */
-    public function setFuncionario(\AppBundle\Entity\Funcionario $funcionario)
-    {
-        $this->funcionario = $funcionario;
-
-        return $this;
-    }
-
-    /**
-     * Get funcionario
-     *
-     * @return \AppBundle\Entity\Funcionario
-     */
-    public function getFuncionario()
-    {
-        return $this->funcionario;
-    }
 }
+
