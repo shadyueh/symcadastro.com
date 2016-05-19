@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Dependente
@@ -25,6 +26,7 @@ class Dependente
      * @var string
      *
      * @ORM\Column(name="nome", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nome;
 
@@ -39,6 +41,7 @@ class Dependente
      * @var string
      *
      * @ORM\Column(name="parentesco", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $parentesco;
 

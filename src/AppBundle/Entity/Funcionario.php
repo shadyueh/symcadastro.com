@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Funcionario
@@ -25,6 +26,7 @@ class Funcionario
      * @var string
      *
      * @ORM\Column(name="nome", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $nome;
 
@@ -32,6 +34,7 @@ class Funcionario
      * @var string
      *
      * @ORM\Column(name="cpf", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $cpf;
 
@@ -46,6 +49,7 @@ class Funcionario
      * @var string
      *
      * @ORM\Column(name="endereco", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $endereco;
 
